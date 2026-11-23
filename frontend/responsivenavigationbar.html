@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mobile Navigation Bar</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        button {
+            background: none;
+            color: white;
+            border: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        nav {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        nav.open {
+            display: flex;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+        }
+
+        nav a:hover {
+            background: blue;
+        }
+
+        main {
+            padding: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">MyShop</div>
+
+        <button onclick="toggleMenu()">☰</button>
+
+        <nav id="menu">
+
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <h1>Welcome to MyShop</h1>
+
+        <p>Resize the browser window to see the menu change.</p>
+
+    </main>
+
+    <script>
+
+        function toggleMenu() {
+
+            let menu = document.getElementById("menu");
+
+            menu.classList.toggle("open");
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            width: 300px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .banner {
+            height: 100px;
+            background: linear-gradient(to right, blue, purple);
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            background: yellow;
+            border: 5px solid white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            font-weight: bold;
+            margin: -45px auto 10px;
+        }
+
+        .content {
+            padding: 10px 20px 20px;
+        }
+
+        h2 {
+            margin: 10px 0 5px;
+        }
+
+        p {
+            margin: 5px 0 20px;
+            color: gray;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        ul li {
+            background: #eeeeee;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        #followers {
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 30px;
+            border-radius: 25px;
+            border: 2px solid black;
+            background: black;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button.following {
+            background: white;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="banner"></div>
+
+        <div class="avatar">AK</div>
+
+        <div class="content">
+            <h2>Arjun Kumar</h2>
+            <p>Web Developer</p>
+
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Git</li>
+            </ul>
+
+            <div id="followers">120 followers</div>
+
+            <button id="followBtn" onclick="followUser()">Follow</button>
+        </div>
+    </div>
+
+    <script>
+        let following = false;
+        let count = 120;
+
+        function followUser() {
+            let btn = document.getElementById("followBtn");
+            let followers = document.getElementById("followers");
+
+            if (following == false) {
+                following = true;
+                count++;
+                btn.innerText = "Following";
+                btn.classList.add("following");
+            } else {
+                following = false;
+                count--;
+                btn.innerText = "Follow";
+                btn.classList.remove("following");
+            }
+
+            followers.innerText = count + " followers";
+        }
+    </script>
+
+</body>
+</html>
